@@ -4,5 +4,12 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method == "GET")
 {
-    include './read.php';
+    if (isset($_GET['id']))
+    {
+        include './read_single.php';
+    }
+    else
+    {
+        include './read.php';
+    }  
 }
