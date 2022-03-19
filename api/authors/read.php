@@ -14,9 +14,10 @@ $query_results = $author->read();
 
 $num_rows = $query_results->rowCount();
 
-if ($num_rows <= 0)
+if (!($num_rows > 0))
 {
-    return json_encode(array('message' => 'No results found.'));
+    echo json_encode(array('message' => 'No authors found.'));
+    die();
 }
 else
 {
