@@ -5,33 +5,34 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-include_once '../../models/Authors.php';
-include_once '../../config/Database.php';
+include '../../config/Database.php';
+include '../../models/Categories.php';
 
 $db = new Database();
 $db = $db->connectDB();
 
-$author = new Author($db);
+$category = new Category($db);
+
 
 $data = json_decode(file_get_contents("php://input"));
 
-if(!$data->author)
+if(!$data->category)
 {
     echo json_encode(array('message' => 'Missing Required Parameters'));
     die();
 }
 
-$author->author = htmlspecialchars(strip_tags($data->author));
+$category->category = $data->category;
 
-if($author->create())
+if($category->create())
 {
     echo json_encode(array(
-        'message' => 'Author Created'
+        'message' => 'Category Created'
     ));
 }
 else
 {
     echo json_encode(array(
-        'message' => "Error Author NOT created"
+        'message' => "Error Category NOT created"
     ));
 }

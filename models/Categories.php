@@ -43,4 +43,21 @@ class Category
             $this->category = null;
         }
     }
+
+    public function create()
+    {
+        $query = 'INSERT INTO ' . $this->table . ' (category) VALUES(:category)';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->category = htmlspecialchars(strip_tags($this->category));
+
+        $stmt->bindParam(':category', $this->category);
+
+        if ($stmt->execute())
+        {
+            return true;
+        }
+        return false;
+    }
 }
