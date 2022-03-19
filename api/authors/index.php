@@ -13,3 +13,11 @@ if ($method == "GET")
         include './read.php';
     }  
 }
+else if ($method == "POST")
+{
+    include './create.php';
+}
+else if ($method == "PUT")
+{
+    include './update.php';
+}

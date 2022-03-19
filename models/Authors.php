@@ -1,7 +1,7 @@
 <?php
 class Author                        
 {
-    public $author_name;
+    public $author;
     public $id;
     private $conn;
     private $table = "authors";
@@ -37,11 +37,43 @@ class Author
         {
             $this->id = $result['id'];
             $this->author = $result['author'];
+            return true;
         }
         else
         {
             $this->id = null;
             $this->author = null;
+            return false;
         }
+    }
+
+    public function create()
+    {
+        $query = 'INSERT INTO ' . $this->table . ' (author)
+        VALUES(:author)';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':author', $this->author);
+
+        if ($stmt->execute())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function update()
+    {
+        $query = 'UPDATE ' . $this->table . ' SET author = :author WHERE id = :id';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':id', $this->id);
+
+        if ($stmt->execute())
+        {
+            return true;
+        }
+        return false;
     }
 }
