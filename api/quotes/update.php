@@ -37,7 +37,7 @@ if (!isValid($test_author, $data->authorId) or !isValid($test_category,  $data->
  or !isQuoteIdValid($quote, $data->id))
 {
     echo json_encode(array(
-        'message' => 'Invalid id, authorId, or categoryId'
+        'message' => 'No Quotes Found'
     ));
     die();
 }
