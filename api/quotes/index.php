@@ -4,7 +4,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method == "GET")
 {
-    if (isset($_GET['id']))
+    if (isset($_GET['id']) or isset($_GET['authorId']) or isset($_GET['categoryId']))
     {
         include './read_single.php';
     }
