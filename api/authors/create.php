@@ -26,7 +26,8 @@ $author->author = htmlspecialchars(strip_tags($data->author));
 if($author->create())
 {
     echo json_encode(array(
-        'message' => 'Author Created'
+        "id" => $db->lastInsertId(),
+        "author" => $author->author
     ));
 }
 else
