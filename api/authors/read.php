@@ -21,15 +21,18 @@ if (!($num_rows > 0))
 }
 else
 {
+    $json_array = array();
     while ($row = $query_results->fetch(PDO::FETCH_ASSOC))
     {
         $row_array = array(
             'id' => $row['id'],
             'author' => $row['author']
         );
-        echo json_encode($row_array);
+        array_push($json_array, $row_array);
     }
 }
+
+echo json_encode($json_array);
 
 
 exit();
