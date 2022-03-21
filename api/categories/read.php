@@ -30,6 +30,6 @@ while ($row = $query_results->fetch(PDO::FETCH_ASSOC))
     array_push($json_array, $row_array);
 }
 
-echo $json_encode($json_array);
+echo json_encode($json_array);
 
 exit();
