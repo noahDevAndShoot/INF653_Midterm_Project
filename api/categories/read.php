@@ -23,10 +23,11 @@ if (!($num_rows > 0))
 $json_array = array();
 while ($row = $query_results->fetch(PDO::FETCH_ASSOC))
 {
-    $array_push($json_array, (array(
+    $row_array = array(
         "id" => $row['id'],
         "category" => $row['category']
-    )));
+    );
+    array_push($json_array, $row_array);
 }
 
 echo $json_encode($json_array);
