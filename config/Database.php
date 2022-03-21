@@ -2,10 +2,10 @@
 class Database 
 {
     private $conn;
-    private $host = "localhost";
-    private $username = "root";
-    private $db_name = "quotesdb";
-    private $password = "";
+    private $host = "acw2033ndw0at1t7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+    private $username = "mse9eib2z4ug3gbd";
+    private $db_name = "zwp3tcipxqsaop9u";
+    private $password = getenv('JAWSDB_PASSWD');
 
     public function connectDB()
     {
