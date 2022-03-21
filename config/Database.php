@@ -2,7 +2,7 @@
 class Database 
 {
     private $url;
-    private $dbparts = parse_url($url);
+    private $conn;
 
     public function __construct()
     {
@@ -20,7 +20,7 @@ class Database
 
         try
         {
-            $this->conn = new PDO("mysql:host=$this->hostname;dbname=$this->database", $this->username, $this->password);
+            $this->conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $error)
