@@ -24,12 +24,11 @@ if(!$data->author or !$data->id)
 
 if (!isValid($author, $data->id))
 {
-    echo json_encode(array('message' => 'authorID Not Found'));
+    echo json_encode(array('message' => 'authorId Not Found'));
     die();
 }
 
-$author->id = htmlspecialchars(strip_tags($data->id));
-$author->author = htmlspecialchars(strip_tags($data->author));
+$author->author = $data->author;
 
 if ($author->update())
 {

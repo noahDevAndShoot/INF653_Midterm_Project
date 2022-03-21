@@ -28,10 +28,18 @@ $test_author = new Author($db);
 
 $test_category = new Category($db);
 
-if (!isValid($test_author, $data->authorId) or !isValid($test_category,  $data->categoryId))
+if (!isValid($test_author, $data->authorId))
 {
     echo json_encode(array(
-        'message' => 'Invalid authorId or categoryId'
+        'message' => 'authorId Not Found'
+    ));
+    die();
+}
+
+if (!isValid($test_category,  $data->categoryId))
+{
+    echo json_encode(array(
+        'message' => 'categoryId Not Found'
     ));
     die();
 }

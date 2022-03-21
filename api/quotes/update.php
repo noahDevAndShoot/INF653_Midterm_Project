@@ -33,11 +33,25 @@ $quote = new Quote($db);
 $quote->authorId = null;
 $quote->categoryId = null;
 
-if (!isValid($test_author, $data->authorId) or !isValid($test_category,  $data->categoryId)
- or !isQuoteIdValid($quote, $data->id))
+if (!isQuoteIdValid($quote, $data->id))
 {
     echo json_encode(array(
         'message' => 'No Quotes Found'
+    ));
+    die();
+}
+if (!isValid($test_author, $data->authorId))
+{
+    echo json_encode(array(
+        'message' => 'authorId Not Found'
+    ));
+    die();
+}
+
+if (!isValid($test_category,  $data->categoryId))
+{
+    echo json_encode(array(
+        'message' => 'categoryId Not Found'
     ));
     die();
 }

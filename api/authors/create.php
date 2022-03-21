@@ -21,7 +21,7 @@ if(!$data->author)
     die();
 }
 
-$author->author = htmlspecialchars(strip_tags($data->author));
+$author->author = $data->author;
 
 if($author->create())
 {

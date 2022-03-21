@@ -25,7 +25,7 @@ if(!$data->id)
 
 if (!isValid($category, $data->id))
 {
-    echo json_encode(array('message' => "No Categories Found"));
+    echo json_encode(array('message' => "categoryId Not Found"));
     die();
 }
 

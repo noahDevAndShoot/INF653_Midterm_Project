@@ -27,6 +27,10 @@ class Quote
 
     public function read_single()
     {
+        $this->authorId = htmlspecialchars(strip_tags($this->authorId));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
         $isConditionAdded = false;
         $query = 'SELECT * FROM ' . $this->table . ' WHERE ';
         if ($this->id != null)

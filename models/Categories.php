@@ -27,6 +27,9 @@ class Category
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE id = :id';
         $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
         $stmt->bindParam(':id', $this->id);
 
         $stmt->execute();
@@ -85,6 +88,9 @@ class Category
     {
         $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
         $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
         $stmt->bindParam(':id', $this->id);
 
         if ($stmt->execute())

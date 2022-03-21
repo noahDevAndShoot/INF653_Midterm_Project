@@ -25,11 +25,9 @@ if(!$data->id)
 
 if(!isValid($author, $data->id))
 {
-    echo json_encode(array('message' => 'No author found'));
+    echo json_encode(array('message' => 'authorId Not Found'));
     die();
 }
-
-$author->id = htmlspecialchars(strip_tags($data->id));
 
 if ($author->delete())
 {
