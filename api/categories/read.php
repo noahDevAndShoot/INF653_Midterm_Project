@@ -19,12 +19,16 @@ if (!($num_rows > 0))
     echo json_encode(array('message' => 'No authors found.'));
     die();
 }
+
+$json_array = array();
 while ($row = $query_results->fetch(PDO::FETCH_ASSOC))
 {
-    echo json_encode(array(
+    $array_push($json_array, (array(
         "id" => $row['id'],
         "category" => $row['category']
-    ));
+    )));
 }
+
+echo $json_encode($json_array);
 
 exit();
