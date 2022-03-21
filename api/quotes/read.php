@@ -14,6 +14,7 @@ $db = $db->connectDB();
 $quote = new Quote($db);
 
 $results = $quote->read();
+$json_array = array();
 
 if ($results->rowCount() > 0)
 {
@@ -35,13 +36,14 @@ if ($results->rowCount() > 0)
             die();
         }
 
-        echo json_encode(array(
+        array_push($json_array, array(
             "id" => $row['id'],
             "quote" => $row['quote'],
             "author" => $author->author,
             "category" => $category->category
         ));
     }
+    echo json_encode($json_array);
 }
 else
 {
