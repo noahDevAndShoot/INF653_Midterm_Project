@@ -26,3 +26,5 @@ while ($row = $query_results->fetch(PDO::FETCH_ASSOC))
         "category" => $row['category']
     ));
 }
+
+exit();

@@ -37,3 +37,4 @@ else
 {
     echo json_encode(array('message' => 'Error: ' . $this->conn->error));
 }
+exit();

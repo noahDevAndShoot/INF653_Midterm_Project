@@ -37,3 +37,5 @@ else
         'message' => "Error Category NOT created"
     ));
 }
+
+exit();

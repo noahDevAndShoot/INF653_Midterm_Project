@@ -36,3 +36,4 @@ else
         'message' => "Error Author NOT created"
     ));
 }
+exit();

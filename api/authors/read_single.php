@@ -33,3 +33,5 @@ else
 
 
 echo $json_array;
+
+exit();

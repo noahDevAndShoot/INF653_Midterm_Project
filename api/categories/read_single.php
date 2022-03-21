@@ -25,3 +25,5 @@ echo json_encode(array(
     'id' => $category->id,
     'category' => $category->category
 ));
+
+exit();

@@ -47,3 +47,5 @@ else
         "message" => "Error"
     ));
 }
+
+exit();

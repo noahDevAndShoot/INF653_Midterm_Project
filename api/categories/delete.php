@@ -38,3 +38,5 @@ else
 {
     echo json_encode(array('message' => 'Error'));
 }
+
+exit();
