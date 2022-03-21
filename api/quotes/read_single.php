@@ -63,6 +63,16 @@ if ($results->rowCount() > 0)
             die();
         }
 
+        if (isset($_GET['id'])) //there will only be one result, return as a single object
+        {
+            echo json_encode(array(            
+                "id" => $row['id'],
+                "quote" => $row['quote'],
+                "author" => $author->author,
+                "category" => $category->category));
+            die();
+        }
+
         array_push($json_array, array(
             "id" => $row['id'],
             "quote" => $row['quote'],
